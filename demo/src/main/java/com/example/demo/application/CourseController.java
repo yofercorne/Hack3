@@ -11,22 +11,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.domain.Course;
-import com.example.demo.domain.GenericEntityService;
+import com.example.demo.domain.CourseService;
+//import com.example.demo.domain.GenericEntityService;
 
 @RestController
 @RequestMapping("/courses")
 public class CourseController {
 
     @Autowired
-    private GenericEntityService<Course> courseService;  
+    private CourseService courseService;  
+    //private GenericEntityService<Course> courseService;
 
     @PostMapping
     public ResponseEntity<Course> createCourse(@RequestBody Course course) {
-        return new ResponseEntity<>(courseService.saveEntity(course), HttpStatus.CREATED);
+        return new ResponseEntity<>(courseService.saveCourse(course), HttpStatus.CREATED);
     }
 
     @GetMapping
     public ResponseEntity<List<Course>> getAllCourses() {
-        return new ResponseEntity<>(courseService.findAllEntities(), HttpStatus.OK);
+        return new ResponseEntity<>(courseService.findAllCourses(), HttpStatus.OK);
     }
 }

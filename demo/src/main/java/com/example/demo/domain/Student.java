@@ -20,9 +20,10 @@ public class Student {
     }
 
     public Student(Long id, String name, String email, String code){
+        this.id = id;
         this.code = code;
         this.email = email;
-        this.id = id;
+        
         this.name = name;
     }
 

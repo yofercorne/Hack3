@@ -1,7 +1,8 @@
 package com.example.demo.domain;
 import jakarta.persistence.*;
-import java.util.HashSet;
+
 import java.util.Set;
+import java.util.HashSet;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -21,10 +22,10 @@ public class Course {
     private String HRgroup;
     private Integer cicle;
     private String VRgroup;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "coursetype_id") 
-
-    private Set<CourseType> coursetype = new HashSet<> ();
+    
+    @OneToMany(fetch = FetchType.LAZY)
+    private Set<CourseType> coursetype = new HashSet<>();
+    //private CourseType courseType;
 
     public Course(){}
     public Course(Long id, String name, String code, String HRgroup,Integer credits, Integer cicle, String VRgroup, Set<CourseType> coursetype){

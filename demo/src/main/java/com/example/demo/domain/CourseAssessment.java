@@ -2,7 +2,8 @@ package com.example.demo.domain;
 
 import jakarta.persistence.*;
 
-import java.time.Period;
+import java.util.HashSet;
+import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -20,27 +21,27 @@ public class CourseAssessment {
     private String numNota;
     private String nomenclatura;
 
-     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "period_id") 
-    private Period period;
+    @OneToMany(fetch = FetchType.LAZY)
+    private Set<Periodo> periodo  = new HashSet<>();
+    //private Periodo periodo;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "course_id") 
-    private Course course;
+    @OneToMany(fetch = FetchType.LAZY)
+    private Set<Course> course= new HashSet<>();
+    //private Course course;
 
     public CourseAssessment(){}
-    public CourseAssessment(Long id,String title, String tipoNota, String numNota, String nomenclatura, Period period, Course course){
+    public CourseAssessment(Long id,String title, String tipoNota, String numNota, String nomenclatura, Set<Periodo> periodo, Set<Course> course){
         this.tipoNota = tipoNota;
         this.id = id;
         this.numNota = numNota;
         this.nomenclatura = nomenclatura;
-        this.period = period;
+        this.periodo = periodo;
         this.title = title;
         this.course = course;
     }
 
 
-    public Course getCourse() {
+    public Set<Course> getCourse() {
         return course;
     }
     public Long getId() {
@@ -52,8 +53,8 @@ public class CourseAssessment {
     public String getNumNota() {
         return numNota;
     }
-    public Period getPeriod() {
-        return period;
+    public Set<Periodo> getPeriodo() {
+        return periodo;
     }
     public String getTipoNota() {
         return tipoNota;
@@ -61,7 +62,7 @@ public class CourseAssessment {
     public String getTitle() {
         return title;
     }
-    public void setCourse(Course course) {
+    public void setCourse(Set<Course> course) {
         this.course = course;
     }
     public void setId(Long id) {
@@ -73,8 +74,8 @@ public class CourseAssessment {
     public void setNumNota(String numNota) {
         this.numNota = numNota;
     }
-    public void setPeriod(Period period) {
-        this.period = period;
+    public void setPeriodo(Set<Periodo> periodo) {
+        this.periodo = periodo;
     }
     public void setTipoNota(String tipoNota) {
         this.tipoNota = tipoNota;

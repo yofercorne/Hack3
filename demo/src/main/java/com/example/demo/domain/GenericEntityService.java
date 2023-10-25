@@ -1,3 +1,4 @@
+/*
 package com.example.demo.domain;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,3 +29,5 @@ public class GenericEntityService<T> {
         return repository.findById(id);
     }
 }
+
+*/

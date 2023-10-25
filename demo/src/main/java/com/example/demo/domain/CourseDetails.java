@@ -19,30 +19,30 @@ public class CourseDetails {
     private String section;
     private String sectionGroup;
 
-    @OneToMany(mappedBy = "courseDetails", cascade = CascadeType.ALL)
-    private Set<Student> student = new HashSet<>();;
+    @OneToMany(fetch = FetchType.LAZY)
+    private Set<Student> student = new HashSet<>();
 
-    @OneToMany(mappedBy = "courseDetails", cascade = CascadeType.ALL)
-    private Set<Professor> professor = new HashSet<>();;
+    @OneToMany(fetch = FetchType.LAZY)
+    private Set<Professor> professor = new HashSet<>();
 
-    @OneToMany(mappedBy = "courseDetails", cascade = CascadeType.ALL)
-    private Set<CourseAssessment> courseAssessments = new HashSet<>();;
+    @OneToMany(fetch = FetchType.LAZY)
+    private Set<CourseAssessment> courseassessments = new HashSet<>();
 
     public CourseDetails(){}
-    public CourseDetails(Long id, String score, String section, String sectioGroup, Set<Professor> professor, Set<Student> student,Set<CourseAssessment> courseAssessments){
-        this.courseAssessments = courseAssessments;
+    public CourseDetails(Long id, String score, String section, String sectioGroup, Set<Professor> professor, Set<Student> student,Set<CourseAssessment> courseassessments){
+        this.courseassessments = courseassessments;
         this.id = id;
         this.score = score;
         this.section = section;
         this.sectionGroup = sectioGroup;
         this.professor = professor;
         this.student = student;
-        this.courseAssessments = courseAssessments;
+        this.courseassessments = courseassessments;
     }
 
 
     public Set<CourseAssessment> getCourseAssessments() {
-        return courseAssessments;
+        return courseassessments;
     }
     public Long getId() {
         return id;
@@ -62,8 +62,8 @@ public class CourseDetails {
     public Set<Student> getStudent() {
         return student;
     }
-    public void setCourseAssessments(Set<CourseAssessment> courseAssessments) {
-        this.courseAssessments = courseAssessments;
+    public void setCourseAssessments(Set<CourseAssessment> courseassessments) {
+        this.courseassessments = courseassessments;
     }
     public void setId(Long id) {
         this.id = id;
