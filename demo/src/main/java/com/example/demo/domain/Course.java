@@ -25,7 +25,6 @@ public class Course {
     
     @OneToMany(fetch = FetchType.LAZY)
     private Set<CourseType> coursetype = new HashSet<>();
-    //private CourseType courseType;
 
     public Course(){}
     public Course(Long id, String name, String code, String HRgroup,Integer credits, Integer cicle, String VRgroup, Set<CourseType> coursetype){

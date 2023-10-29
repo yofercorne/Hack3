@@ -23,12 +23,10 @@ public class CourseAssessment {
 
     @OneToMany(fetch = FetchType.LAZY)
     private Set<Periodo> periodo  = new HashSet<>();
-    //private Periodo periodo;
 
     @OneToMany(fetch = FetchType.LAZY)
     private Set<Course> course= new HashSet<>();
-    //private Course course;
-
+    
     public CourseAssessment(){}
     public CourseAssessment(Long id,String title, String tipoNota, String numNota, String nomenclatura, Set<Periodo> periodo, Set<Course> course){
         this.tipoNota = tipoNota;
@@ -83,7 +81,7 @@ public class CourseAssessment {
     public void setTitle(String title) {
         this.title = title;
     }
-
+    
 
 
 }

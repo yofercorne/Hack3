@@ -14,8 +14,6 @@ public class ProfessorService {
     @Autowired
     private ProfessorRepository professorRepository;
 
-
-
     public Professor saveProfessor(Professor professor) {
         return professorRepository.save(professor);
     }
